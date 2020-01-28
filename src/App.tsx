@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import {connect} from 'react-redux'
+import ComponentButton from './components/ComponentButton'
+import ComponentDiv from './components/ComponentDiv'
+import {getColor} from './actions/PageActions'
+
+
+
+
 
 const App: React.FC = () => {
+
+  const [page, getColorAction] = useState<any>('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+      <div className="container">
+        <ComponentButton
+         getColor={getColorAction}/>
+        <ComponentDiv background={page.background}/>
+      </div>
+
+  )
 }
 
-export default App;
+
+const mapStateToProps = (store: any) => {
+  return {
+    page: store.page,
+  }
+}
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    getColorAction: () => dispatch(getColor()),
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
