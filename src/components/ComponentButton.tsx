@@ -18,7 +18,7 @@ export class ComponentButton extends React.Component<IButton> {
         return (
             <div className="ib page">
                 <button style={style} className="btn" onClick={this.onBtnClick}>
-                    Click me
+                    Change color
                 </button>
             </div>
         )

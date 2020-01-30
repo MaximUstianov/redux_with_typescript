@@ -12,8 +12,22 @@ code {
     monospace;
 }
 .box{
-  height: 100px;
-  width: 100px;
+  height: 300px;
+  width: 800px;
   margin-top: 3rem;
   border: 3px solid aqua;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.btn{
+  padding: 1rem 3.5rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: bolder;
 }

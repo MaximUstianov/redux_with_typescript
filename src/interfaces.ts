@@ -3,4 +3,5 @@ export interface IProps {
     background?: any
     getColorAction?: any
     page?:any
+    customColors?:any
 }
