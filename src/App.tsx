@@ -1,46 +1,38 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {getColor} from './actions/PageActions'
-import {AppState} from "./store/configureStore";
-import {ThunkDispatch} from 'redux-thunk';
-import {Color} from "./store/types";
-import {bindActionCreators} from 'redux';
+import {IProps} from "./interfaces";
+import { ComponentDiv } from './components/ComponentDiv';
+import { ComponentButton } from './components/ComponentButton';
 
-type Props = LinkDispatchProps;
 
-interface LinkDispatchProps {
-    getColor: (background: any) => void;
-    background?: any;
-}
 
-interface LinkStateProps {
-    page: any;
-}
+class App extends React.Component<IProps> {
 
-class App extends React.Component<Props> {
+
     render() {
-        const style = {
-            background: this.props.background
-        }
+        const {page, getColorAction} = this.props
         return (
             <div className="container">
-                <button className="btn" onClick={this.props.getColor}>
-                    Click me
-                </button>
-                <div style={style} className="box">  </div>
+                <ComponentButton getColor={getColorAction} color={"yellow"}/>
+                <ComponentButton getColor={getColorAction} color={"green"}/>
+                <ComponentDiv background={page.background}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state: AppState): LinkStateProps => {
+const mapStateToProps = (state: any) => {
     return {
         page: state.page,
     }
 }
-const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, Color>): LinkDispatchProps => ({
-    getColor: bindActionCreators(getColor, dispatch)
-});
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        getColorAction: (background: any) => dispatch(getColor(background))
+    }
+};
 
 export default connect(
     mapStateToProps,
