@@ -31,3 +31,29 @@ code {
   text-transform: uppercase;
   font-weight: bolder;
 }
+.About li {
+  list-style-type: none;
+  background: lightyellow;
+  height: 65px;
+  width: 500px;
+  border: 1px solid;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 30px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+.Article li{
+  list-style-type: none;
+  background: lightskyblue;
+  height: 100px;
+  width: 800px;
+  border: 1px solid;
+  text-transform: lowercase;
+  text-align: center;
+  padding-top: 30px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
