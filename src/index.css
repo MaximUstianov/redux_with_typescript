@@ -34,9 +34,7 @@ code {
     text-transform: uppercase;
     font-weight: bolder;
 }
-.About{
-    position: relative;
-}
+
 .About li {
     list-style-type: none;
     background: lightyellow;
@@ -53,8 +51,8 @@ code {
 
 .content {
     position: absolute;
-    top: 20px;
-    right: -552px;
+    top: 0;
+    left: 0;
     width: 500px;
 }
 

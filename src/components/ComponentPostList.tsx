@@ -1,4 +1,5 @@
 import React from "react";
+import {ComponentArticle} from "./ComponentArticle";
 
 
 type respX = {
@@ -37,10 +38,7 @@ export class ComponentPostList extends React.Component<PropsI, StateI> {
     render() {
         return (
             <div className="About">
-                <div className="content">
-                    <div className="title">{this.state.changedTitle}</div>
-                    <div className="article">{this.state.changedBody}</div>
-                </div>
+                <ComponentArticle changedBody={this.state.changedBody} changedTitle={this.state.changedTitle}/>
                 {this.state.data.map(el => (
                     <li onClick={e => this.getPostById(el.id)} key={el.id}>
                         {el.title}
