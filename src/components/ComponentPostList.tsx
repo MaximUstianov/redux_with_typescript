@@ -13,16 +13,18 @@ interface PropsI {
 
 interface StateI {
     data: respX[];
+    changedBody: string
+    changedTitle: string
 }
 
 export class ComponentPostList extends React.Component<PropsI, StateI> {
 
-    state: StateI = {data: []}
+    state: StateI = {data: [], changedBody: '', changedTitle: 'Click to choose article'}
 
-    getPostById = (id: any) => {
-
-        console.log(this.state.data[id])
-          /*  console.log(this.state.data[0].body)*/
+    async getPostById(id: any) {
+        const myResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+        const myJson = await myResponse.json();
+        this.setState({changedBody: myJson.body, changedTitle: myJson.title});
     }
 
     async componentDidMount() {
@@ -35,10 +37,13 @@ export class ComponentPostList extends React.Component<PropsI, StateI> {
     render() {
         return (
             <div className="About">
+                <div className="content">
+                    <div className="title">{this.state.changedTitle}</div>
+                    <div className="article">{this.state.changedBody}</div>
+                </div>
                 {this.state.data.map(el => (
-                    <li onClick={this.getPostById} key={el.id}>
+                    <li onClick={e => this.getPostById(el.id)} key={el.id}>
                         {el.title}
-                        {console.log("dfdfdf")}
                     </li>
                 ))}
             </div>

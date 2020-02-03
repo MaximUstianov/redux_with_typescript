@@ -6,7 +6,7 @@ import {ComponentDiv} from './components/ComponentDiv';
 import {ComponentButton} from './components/ComponentButton';
 import {colorData} from './colorData'
 import {ComponentPostList} from "./components/ComponentPostList";
-/*import {ComponentArticle} from "./components/ComponentArticle";*/
+
 
 
 class App extends React.Component<IProps> {
@@ -19,7 +19,6 @@ class App extends React.Component<IProps> {
         return (
             <div className="container">
                 <ComponentPostList />
-            {/*    <ComponentArticle />*/}
                 {colorComponents}
                 <ComponentDiv background={page.background}/>
             </div>
