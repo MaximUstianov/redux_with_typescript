@@ -50,9 +50,9 @@ code {
 }
 
 .content {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: 2%;
+    left: 2%;
     width: 500px;
 }
 
