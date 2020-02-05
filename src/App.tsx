@@ -12,7 +12,7 @@ import {StateI} from "./interfaces";
 
 class App extends React.Component<IProps, StateI> {
 
-    state: StateI = {data: [], changedBody: '', changedTitle: 'Click on article to read it'}
+    state: StateI = {data: [], changedBody: ''}
 
     async componentDidMount() {
         const response = await fetch(`https://jsonplaceholder.typicode.com/posts/`);
@@ -23,7 +23,7 @@ class App extends React.Component<IProps, StateI> {
     getPostById = async (id: any) => {
         const myResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
         const myJson = await myResponse.json();
-        this.setState({changedBody: myJson.body, changedTitle: myJson.title});
+        this.setState({changedBody: myJson.body});
     }
 
     render() {
@@ -34,7 +34,7 @@ class App extends React.Component<IProps, StateI> {
 
         return (
             <div className="container">
-                <ComponentArticle changedBody={this.state.changedBody} changedTitle={this.state.changedTitle}/>
+                <ComponentArticle changedBody={this.state.changedBody} />
                 <ComponentPostList onClick={this.getPostById} data={this.state.data}/>
                 {colorComponents}
                 <ComponentDiv background={page.background}/>

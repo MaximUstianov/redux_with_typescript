@@ -16,5 +16,4 @@ type respX = {
 export interface StateI {
     data: respX[];
     changedBody: string
-    changedTitle: string
 }
