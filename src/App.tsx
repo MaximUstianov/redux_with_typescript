@@ -3,8 +3,25 @@ import {connect} from 'react-redux'
 import {GET_ID} from './actions/PageActions'
 import {ComponentPostList} from "./components/ComponentPostList";
 import {ComponentArticle} from "./components/ComponentArticle";
-import {IProps} from "./interfaces";
-import {StateI} from "./interfaces";
+import {IId} from './actions/PageActions'
+import {ThunkDispatch} from "redux-thunk";
+
+
+type respX = {
+    "id": any,
+    "userId": any,
+    "title": any,
+    "body": any,
+}
+
+interface IProps {
+    getPostByIdAction: any,
+    page: any,
+}
+
+interface StateI {
+    data: respX[];
+}
 
 
 class App extends React.Component<IProps, StateI> {
@@ -17,11 +34,8 @@ class App extends React.Component<IProps, StateI> {
         this.setState({data: json});
     }
 
-
     render() {
         const {page, getPostByIdAction} = this.props
-
-
         return (
             <div className="container">
                 <ComponentArticle post={page.post}/>
@@ -37,12 +51,11 @@ const mapStateToProps = (state: any) => {
     }
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, IId>) => {
     return {
         getPostByIdAction: (post: any) => dispatch({type: GET_ID, payload: post})
     }
 };
-
 
 export default connect(
     mapStateToProps,

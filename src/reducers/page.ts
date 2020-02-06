@@ -1,8 +1,6 @@
 import {GET_ID} from '../actions/PageActions'
 
-
 const initialState = {
-    background: "blue",
     post: "Click on article to read it"
 }
 

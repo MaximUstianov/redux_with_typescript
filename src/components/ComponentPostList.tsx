@@ -13,14 +13,13 @@ interface IPost {
 }
 
 export class ComponentPostList extends React.Component<IPost> {
-    onHandleClick = (id: any) => {
-        this.props.getPostById(id)
+    onHandleClick = (body: any) => {
+        this.props.getPostById(body)
     }
 
     render() {
         return (
             <div className="About">
-
                 {this.props.data.map(el => (
                     <li onClick={e => this.onHandleClick(el.body)} key={el.id}>
                         {el.title}
