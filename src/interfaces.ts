@@ -2,7 +2,7 @@ export interface IProps {
     getColor?: (name: any) => void;
     background?: any,
     getColorAction?: any,
-    getIdAction?: any,
+    getPostByIdAction?: any,
     page?: any,
     customColors?: any
 }

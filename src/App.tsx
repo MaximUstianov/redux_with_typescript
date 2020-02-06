@@ -1,12 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-/*import {getColor} from './actions/PageActions'*/
 import {GET_ID} from './actions/PageActions'
-import {ComponentDiv} from './components/ComponentDiv';
-import {ComponentButton} from './components/ComponentButton';
 import {ComponentPostList} from "./components/ComponentPostList";
 import {ComponentArticle} from "./components/ComponentArticle";
-import {colorData} from './colorData'
 import {IProps} from "./interfaces";
 import {StateI} from "./interfaces";
 
@@ -23,17 +19,13 @@ class App extends React.Component<IProps, StateI> {
 
 
     render() {
-        const {page, getColorAction, getIdAction} = this.props
-        const colorComponents = colorData.map(index =>
-            <ComponentButton getColor={getColorAction} color={index.myColor} key={index.id}/>
-        )
+        const {page, getPostByIdAction} = this.props
+
 
         return (
             <div className="container">
-                <ComponentArticle IWantToRedux={page.IWantToRedux}/>
-                <ComponentPostList getPostById={getIdAction} data={this.state.data}/>
-                {colorComponents}
-                <ComponentDiv background={page.background}/>
+                <ComponentArticle post={page.post}/>
+                <ComponentPostList getPostById={getPostByIdAction} data={this.state.data}/>
             </div>
         )
     }
@@ -47,7 +39,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getIdAction: (IWantToRedux: any) => dispatch({type: GET_ID, payload: IWantToRedux})
+        getPostByIdAction: (post: any) => dispatch({type: GET_ID, payload: post})
     }
 };
 

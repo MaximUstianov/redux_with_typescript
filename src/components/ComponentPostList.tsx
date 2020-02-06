@@ -9,7 +9,7 @@ type respX = {
 
 interface IPost {
     data: respX[],
-    getPostById: (IWantToRedux: any) => void;
+    getPostById: (post: any) => void;
 }
 
 export class ComponentPostList extends React.Component<IPost> {
