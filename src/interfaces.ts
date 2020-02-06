@@ -1,8 +1,9 @@
 export interface IProps {
     getColor?: (name: any) => void;
-    background?: any
-    getColorAction?: any
-    page?: any
+    background?: any,
+    getColorAction?: any,
+    getIdAction?: any,
+    page?: any,
     customColors?: any
 }
 
@@ -15,5 +16,5 @@ type respX = {
 
 export interface StateI {
     data: respX[];
-    changedBody: string
+    /*changedBody: string*/
 }

@@ -1,7 +1,7 @@
 import React from "react";
 
 interface IArticle {
-    changedBody: string
+    IWantToRedux: any
 }
 
 export class ComponentArticle extends React.Component<IArticle> {
@@ -10,7 +10,7 @@ export class ComponentArticle extends React.Component<IArticle> {
         return (
             <div className="About">
                 <div className="content">
-                    <div className="article">{this.props.changedBody}</div>
+                    <div className="article">{this.props.IWantToRedux}</div>
                 </div>
             </div>
         );
