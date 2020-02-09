@@ -24,8 +24,10 @@ code {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     align-content: center;
+    margin-right: 3rem;
+    margin-top: 1rem;
 }
 
 .btn {
