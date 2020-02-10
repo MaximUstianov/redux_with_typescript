@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {GET_ID} from './actions/PageActions'
+import { getPostById} from './actions/PageActions'
 import {ComponentPostList} from "./components/ComponentPostList";
 import {ComponentArticle} from "./components/ComponentArticle";
 
@@ -13,7 +13,7 @@ type respX = {
 }
 
 interface IProps {
-    getPostByIdAction: any,
+    getPostById: any,
     page: any,
 }
 
@@ -33,11 +33,11 @@ class App extends React.Component<IProps, StateI> {
     }
 
     render() {
-        const {page, getPostByIdAction} = this.props
+        const {page, getPostById} = this.props
         return (
             <div className="container">
                 <ComponentArticle post={page.post}/>
-                <ComponentPostList getPostById={getPostByIdAction} data={this.state.data}/>
+                <ComponentPostList getPostById={getPostById} data={this.state.data}/>
             </div>
         )
     }
@@ -51,7 +51,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getPostByIdAction: (post: any) => dispatch({type: GET_ID, payload: post})
+        getPostById: (post: any) => dispatch(getPostById(post))
     }
 };
 
